@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: modresort-service
+  labels:
+    app: modresortchannel
+    chart: modresortchannel-0.1.0
+    release: modresortchannel
+    heritage: Tiller
+spec:
+  type: NodePort
+  ports:
+    - port: 9080
+  selector:
+    app: modresortchannel
+    release: modresortchannel
+    tier: frontend

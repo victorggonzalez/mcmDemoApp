@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: modresort-dep
+spec:
+  selector:
+    matchLabels:
+      app: modresortchannel
+      release: modresortchannel
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: modresortchannel
+        release: modresortchannel
+        tier: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: "kpostreich/modresort:1.0"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9080
+          env:
+          - name: GET_HOSTS_FROM
+            value: dns
+          - name: WLP_LOGGING_CONSOLE_FORMAT
+            value: json
+          - name: WLP_LOGGING_CONSOLE_LOGLEVEL
+            value: info
+          - name: WLP_LOGGING_CONSOLE_SOURCE
+            value: message,trace,accessLog,ffdc
