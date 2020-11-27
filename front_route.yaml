@@ -8,7 +8,6 @@ metadata:
     release: modresortchannel
     heritage: Tiller
 spec:
-  host: apps.hubcluster.mcmpoc.com
   port:
     targetPort: 9080
   subdomain: ""
