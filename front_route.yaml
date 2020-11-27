@@ -1,0 +1,19 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: modresort-route
+  labels:
+    app: modresortchannel
+    chart: modresortchannel-0.1.0
+    release: modresortchannel
+    heritage: Tiller
+spec:
+  host: apps.hubcluster.mcmpoc.com
+  port:
+    targetPort: 9080
+  subdomain: ""
+  to:
+    kind: Service
+    name: modresort-service
+    weight: 100
+  wildcardPolicy: None 
