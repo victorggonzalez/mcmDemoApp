@@ -8,6 +8,7 @@ metadata:
     release: modresortchannel
     heritage: Tiller
 spec:
+  host:  modrestor.victor.com
   port:
     targetPort: 9080
   subdomain: ""
